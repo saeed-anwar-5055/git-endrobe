@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#160b10">
+  <title>ENDROBE — Beyond the Ordinary</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.min.js"></script>
+</head>
+<body>
+
+  <div class="preloader" id="preloader">
+    <div class="loader-logo">ENDROBE</div>
+    <div class="loader-line"><span></span></div>
+    <small>THE ART OF MODERN LUXURY</small>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <div class="announcement">
+    A NEW EXPRESSION OF LUXURY — DISCOVER THE COLLECTION
+  </div>
+
+  <header class="header">
+    <button class="menu-toggle" id="menu-toggle">MENU</button>
+
+    <a href="#home" class="brand">
+      ENDROBE
+      <small>ATELIER OF MODERN LUXURY</small>
+    </a>
+
+    <nav class="navigation" id="navigation">
+      <a href="#home">Home</a>
+      <a href="#shop" data-category="Men">Men</a>
+      <a href="#shop" data-category="Women">Women</a>
+      <a href="#shop">Collections</a>
+      <a href="#story">Our Story</a>
+    </nav>
+
+    <div class="header-tools">
+      <button id="search-open">SEARCH</button>
+      <button id="wishlist-open">♡ <span id="wish-count">0</span></button>
+      <button id="cart-open">BAG (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="hero-image"></div>
+      <div class="hero-shade"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow reveal">COLLECTION NO. 001 — 2026</p>
+        <h1 class="hero-title">
+          BEYOND<br>
+          THE <em>ORDINARY.</em>
+        </h1>
+        <p class="hero-copy reveal">
+          A universe of refined silhouettes,
+          unconventional design and modern luxury.
+        </p>
+        <a href="#shop" class="gold-button magnetic">
+          EXPLORE THE COLLECTION <span>↗</span>
+        </a>
+      </div>
+
+      <div class="hero-bottom">
+        <span>01 / 04</span>
+        <span>DESIGNED TO BE DIFFERENT</span>
+        <span>KARACHI · WORLDWIDE</span>
+      </div>
+    </section>
+
+    <section class="manifesto section">
+      <p class="eyebrow reveal">THE ENDROBE PHILOSOPHY</p>
+      <h2 class="manifesto-title">
+        Not made to follow.<br>
+        <span>Made to define.</span>
+      </h2>
+      <p class="manifesto-copy reveal">
+        We believe fashion is an attitude. Every detail
+        is an expression of individuality.
+      </p>
+    </section>
+
+    <section class="categories section">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">DISCOVER YOUR UNIVERSE</p>
+          <h2>Curated worlds.</h2>
+        </div>
+        <span>EXPLORE ALL ↗</span>
+      </div>
+
+      <div class="category-grid">
+        <a href="#shop" class="category-card tall" data-category="Men">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000" alt="Fashion editorial">
+          <div><small>01 / COLLECTION</small><h3>Menswear</h3></div>
+        </a>
+
+        <a href="#shop" class="category-card" data-category="Women">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900" alt="Women's fashion">
+          <div><small>02 / COLLECTION</small><h3>Womenswear</h3></div>
+        </a>
+
+        <a href="#shop" class="category-card" data-category="Shoes">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900" alt="Luxury shoes">
+          <div><small>03 / COLLECTION</small><h3>Footwear</h3></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="shop section" id="shop">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">THE SIGNATURE EDIT</p>
+          <h2>Selected pieces.</h2>
+        </div>
+        <span id="product-count"></span>
+      </div>
+
+      <div class="filters">
+        <input id="search" placeholder="Search the collection...">
+        <select id="category">
+          <option value="">All categories</option>
+          <option>Men</option>
+          <option>Women</option>
+          <option>Shoes</option>
+          <option>Bags</option>
+          <option>Accessories</option>
+          <option>Streetwear</option>
+          <option>Watches</option>
+          <option>Perfumes</option>
+        </select>
+        <select id="sort">
+          <option value="featured">Featured</option>
+          <option value="price_asc">Price: Low to high</option>
+          <option value="price_desc">Price: High to low</option>
+        </select>
+      </div>
+
+      <div class="products" id="products">
+        <p class="loading">DISCOVERING THE COLLECTION...</p>
+      </div>
+    </section>
+
+    <section class="immersive">
+      <div class="immersive-image"></div>
+      <div class="immersive-content">
+        <p class="eyebrow">THE NEW MOVEMENT</p>
+        <h2>Luxury without<br>permission.</h2>
+        <a href="#shop" class="gold-button">DISCOVER MORE ↗</a>
+      </div>
+    </section>
+
+    <section class="style-studio section" id="style-studio">
+      <p class="eyebrow">THE ENDROBE STYLE STUDIO</p>
+      <h2>Define your aesthetic.</h2>
+      <p>Tell us the occasion. Discover your signature look.</p>
+
+      <div class="studio-controls">
+        <select id="occasion">
+          <option value="casual">Everyday</option>
+          <option value="formal">Formal</option>
+          <option value="evening">Evening</option>
+          <option value="business">Business</option>
+        </select>
+        <button class="gold-button" id="style-button">CREATE MY LOOK ↗</button>
+      </div>
+      <div id="style-result" class="style-result"></div>
+    </section>
+
+    <section class="story section" id="story">
+      <div class="story-image">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1000" alt="ENDROBE fashion story">
+      </div>
+      <div class="story-copy">
+        <p class="eyebrow">AN ATTITUDE. A CULTURE. A WORLD.</p>
+        <h2>We don't dress<br>for approval.</h2>
+        <p>
+          ENDROBE is a contemporary fashion universe
+          where craftsmanship, culture and fearless
+          individuality meet.
+        </p>
+        <a href="#contact" class="text-link">DISCOVER OUR STORY ↗</a>
+      </div>
+    </section>
+
+    <section class="vip section">
+      <p class="eyebrow">THE INNER CIRCLE</p>
+      <h2>Access another world.</h2>
+      <p>Discover private releases, exclusive collections and VIP privileges.</p>
+      <button class="gold-button" id="vip-button">DISCOVER VIP ↗</button>
+    </section>
+
+    <section class="newsletter section" id="contact">
+      <p class="eyebrow">LETTERS FROM ENDROBE</p>
+      <h2>Stay ahead of the ordinary.</h2>
+      <form id="newsletter">
+        <input type="email" placeholder="Your email address" required>
+        <button>JOIN THE WORLD ↗</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="#home" class="footer-brand">ENDROBE</a>
+    <p>THE ART OF MODERN LUXURY.</p>
+    <div class="footer-links">
+      <a href="#shop">SHOP</a>
+      <a href="#story">OUR STORY</a>
+      <a href="#contact">CONTACT</a>
+      <a href="https://wa.me/923168920170" target="_blank" rel="noopener">WHATSAPP ORDERS</a>
+    </div>
+    <small>© 2026 ENDROBE. ALL RIGHTS RESERVED. · WHATSAPP: 03168920170</small>
+  </footer>
+
+  <div class="overlay" id="overlay">
+    <aside class="drawer" id="drawer">
+      <div class="drawer-head">
+        <h2 id="drawer-title">YOUR BAG</h2>
+        <button id="drawer-close">✕</button>
+      </div>
+      <div id="drawer-content"></div>
+    </aside>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
